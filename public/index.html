@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Assignment 2</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="krasota.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Best ToolKit for the Tourist</h1>
+        <div class="section step-1">
+            <h3>Please, select country</h3>
+            <div class="control-group">
+                <select id="countrySelect">
+                    <option value="" selected disabled>-- Choose a Country --</option>
+                    <option value="KZT">Kazakhstan</option>
+                    <option value="RUB">Russia</option>
+                    <option value="EUR">Germany (Eurozone)</option>
+                    <option value="GBP">United Kingdom</option>
+                    <option value="CNY">China</option>
+                    <option value="TRY">Turkey</option>
+                </select>
+                <button id="btnCurrency" onclick="getCurrency()" disabled>Get Exchange Rate (USD ONLY)</button>
+            </div>
+            <div id="currency-result" class="result-box"></div>
+        </div>
+        <hr>
+        <div class="section step-2">
+            <h3>Please, enter city</h3>
+            <div class="control-group">
+                <input type="text" id="cityInput" placeholder="Enter city name..." disabled>
+            </div>
+            <div class="button-group">
+                <button id="btnWeather" onclick="getWeather()" disabled>What's the weather in there?</button>
+                <button id="btnNews" onclick="getNews()" disabled>What happened in here?</button>
+            </div>
+            <div id="error-message" class="error"></div>
+        </div>
+        <div id="weather-info" class="hidden result-box">
+            <h2 id="cityName"></h2>
+            <div class="weather-main">
+                <img id="weatherIcon" src="" alt="Icon">
+                <span id="temp" class="temp-big"></span>
+            </div>
+            <p id="description"></p>
+            <div class="details-grid">
+                <p>Feels like: <span id="feels_like"></span></p>
+                <p>Humidity: <span id="humidity"></span></p>
+                <p>Pressure: <span id="pressure"></span></p>
+                <p>Wind: <span id="wind"></span></p>
+                <p>Rain (3h): <span id="rain"></span></p>
+            </div>
+        </div>
+        <div id="map"></div>
+        <div id="news-container" class="hidden result-box">
+            <h3>Local News</h3>
+            <ul id="news-list"></ul>
+        </div>
+    </div>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
