@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Toolkit</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="krasota.css">
+</head>
+<body>
+    <div class="bg-shape shape-1"></div>
+    <div class="container">
+        <header>
+            <h1>Every Tourist's Toolkit</h1>
+            <p>Plan your trip simply, beautifully and like a pro!</p>
+        </header>
+        <section class="card">
+            <div class="control-group">
+                <select id="countrySelect">
+                    <option value="" selected disabled>Choose your Country</option>
+                    <option value="KZT">Kazakhstan</option>
+                    <option value="RUB">Russia</option>
+                    <option value="EUR">Germany</option>
+                    <option value="GBP">United Kingdom</option>
+                    <option value="CNY">China</option>
+                    <option value="TRY">Turkey</option>
+                </select>
+                <button onclick="fetchData('currency')" id="btnCurrency" disabled>Check Rate (in $ of course)</button>
+            </div>
+            <div id="currency-result" class="result-box hidden"></div>
+        </section>
+        <section class="card disabled-card" id="citySection">
+            <select id="citySelect" disabled><option>Select country first!</option></select>
+            <div class="button-group">
+                <button onclick="fetchData('weather')" id="btnWeather" disabled class="btn-secondary">What's the Weather in here?</button>
+                <button onclick="fetchData('news')" id="btnNews" disabled class="btn-secondary">What are the News in here?</button>
+            </div>
+            <div id="error-message" class="error"></div>
+        </section>
+        <div id="weather-info" class="result-card hidden">
+            <div class="weather-header">
+                <h2 id="cityName"></h2>
+                <img id="weatherIcon" src="" alt="">
+            </div>
+            <div id="temp" class="temp-big"></div>
+            <p id="description"></p>
+            <div class="details-grid">
+                <div>Feels: <strong id="feels_like"></strong></div>
+                <div>Humidity: <strong id="humidity"></strong></div>
+                <div>Pressure: <strong id="pressure"></strong></div>
+                <div>Wind: <strong id="wind"></strong></div>
+            </div>
+        </div>
+        <div id="map"></div>
+        <div id="news-container" class="result-card hidden">
+            <h3>Latest News!</h3>
+            <ul id="news-list"></ul>
+        </div>
+    </div>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
